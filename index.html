@@ -39,31 +39,4 @@
         </tbody>
     </table>
 
-    <div class="update-time" id="last-updated">Last updated: Waiting...</div>
-
-    <script>
-        // Function to fetch prices from CoinGecko API
-        async function fetchCryptoPrices() {
-            try {
-                const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd');
-                const data = await response.json();
-
-                // Update the table with fetched data
-                document.getElementById('btc-price').innerText = '$' + data.bitcoin.usd.toLocaleString();
-                document.getElementById('eth-price').innerText = '$' + data.ethereum.usd.toLocaleString();
-
-                // Show the last updated time
-                const now = new Date();
-                document.getElementById('last-updated').innerText = 'Last updated: ' + now.toLocaleTimeString();
-            } catch (error) {
-                console.error('Failed to fetch data:', error);
-                document.getElementById('last-updated').innerText = 'Data update failed';
-            }
-        }
-
-        // Run immediately when the page loads
-        fetchCryptoPrices();
-
-        // Auto-update every 30 seconds (30000 milliseconds)
-        setInterval(fetchCryptoPrices, 30000);
-    </
+    <div
